@@ -12,14 +12,13 @@
     "--errors-only"
   ],
   "python.defaultInterpreterPath": "c:\\Program Files\\Python313\\python.exe",
-    "editor.defaultFormatter": "ms-python.python", // ms-python.python
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
+  "editor.defaultFormatter": "ms-python.python", // ms-python.python
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
   },
   "[html]": {
     "editor.formatOnSave": true,
@@ -55,5 +54,7 @@
     "django-html": "html", // batisteo.vscode-django
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
-  }
+  },
+  "terminal.integrated.enableCopyPaste": true,
+  "terminal.integrated.copyOnSelection": true
 }
