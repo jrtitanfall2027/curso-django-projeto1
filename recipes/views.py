@@ -8,7 +8,6 @@ from utils.pagination import make_pagination
 from recipes.models import Recipe
 
 PER_PAGE = int(os.environ.get('PER_PAGE', 6))
-# print(PER_PAGE, type(PER_PAGE))
 
 
 def home(request):
