@@ -1,0 +1,19 @@
+& "c:\Users\Reginaldo Junior\Desktop\curso-django-projeto1\venv\Scripts\Activate.ps1"
+
+git status
+
+git init
+
+git add .
+
+git push
+
+git commit -m "Commit014"
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+deactivate
+
+python -c "import string as s;from random import SystemRandom as sr;print(''.join(sr().choices(s.ascii_letters + s.punctuation, k=64)))"
