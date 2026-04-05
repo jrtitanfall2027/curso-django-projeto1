@@ -30,10 +30,10 @@ def strong_password(password):
 class RegisterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        add_placeholder(self.fields['username'], 'Your username')
-        add_placeholder(self.fields['email'], 'Your e-mail')
-        add_placeholder(self.fields['first_name'], 'Ex.: John')
-        add_placeholder(self.fields['last_name'], 'Ex.: Doe')
+        add_placeholder(self.fields['username'], 'Type your username')
+        add_placeholder(self.fields['email'], 'Type your e-mail')
+        add_placeholder(self.fields['first_name'], 'Type your first name')
+        add_placeholder(self.fields['last_name'], 'Type your last name')
         add_placeholder(self.fields['password'], 'Type your password')
         add_placeholder(self.fields['password2'], 'Repeat your password')
 
