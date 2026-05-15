@@ -27,12 +27,11 @@ class AuthorsLoginTest(AuthorsBaseTest):
         password_field.send_keys(string_password)
 
         # Usuário envia o formulário
-        form.submit()
+        self.submit_form(form)
 
         # Usuário vê a mensagem de login com sucesso e seu nome
-        self.assertIn(
-            f'Your are logged in with {user.username}.',
-            self.browser.find_element(By.TAG_NAME, 'body').text
+        self.wait_for_text_in_element(
+            By.TAG_NAME, 'body', f'Your are logged in with {user.username}.'
         )
 
     def test_login_create_raises_404_if_not_POST_method(self):
@@ -62,12 +61,11 @@ class AuthorsLoginTest(AuthorsBaseTest):
         password.send_keys(' ')
 
         # Envia o formulário
-        form.submit()
+        self.submit_form(form)
 
         # Vê uma mensagem de erro na tela
-        self.assertIn(
-            'Invalid username or password',
-            self.browser.find_element(By.TAG_NAME, 'body').text
+        self.wait_for_text_in_element(
+            By.TAG_NAME, 'body', 'Invalid username or password'
         )
 
     def test_form_login_invalid_credentials(self):
@@ -86,10 +84,9 @@ class AuthorsLoginTest(AuthorsBaseTest):
         password.send_keys('invalid_password')
 
         # Envia o formulário
-        form.submit()
+        self.submit_form(form)
 
         # Vê uma mensagem de erro na tela
-        self.assertIn(
-            'Invalid credentials',
-            self.browser.find_element(By.TAG_NAME, 'body').text
+        self.wait_for_text_in_element(
+            By.TAG_NAME, 'body', 'Invalid credentials'
         )

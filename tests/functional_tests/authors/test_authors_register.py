@@ -92,9 +92,8 @@ class AuthorsRegisterTest(AuthorsBaseTest):
         self.get_by_placeholder(
             form, 'Repeat your password').send_keys('P@ssw0rd1')
 
-        form.submit()
+        self.submit_form(form)
 
-        self.assertIn(
-            'Your user is created, please log in.',
-            self.browser.find_element(By.TAG_NAME, 'body').text
+        self.wait_for_text_in_element(
+            By.TAG_NAME, 'body', 'Your user is created, please log in.'
         )

@@ -37,10 +37,8 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
         search_input.send_keys(title_needed)
         search_input.send_keys(Keys.ENTER)
 
-        # O usuário vê o que estava procurando na página
-        self.assertIn(
-            title_needed,
-            self.browser.find_element(By.CLASS_NAME, 'main-content-list').text,
+        self.wait_for_text_in_element(
+            By.CLASS_NAME, 'main-content-list', title_needed
         )
 
     @patch('recipes.views.PER_PAGE', new=2)
