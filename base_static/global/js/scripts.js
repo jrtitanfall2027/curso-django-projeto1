@@ -38,9 +38,29 @@
   }
 
   if (buttonShowMenu) {
-    buttonCloseMenu.removeEventListener('click', showMenu);
+    buttonShowMenu.removeEventListener('click', showMenu);
     buttonShowMenu.addEventListener('click', showMenu);
   }
+
+  // Fecha o menu ao clicar em qualquer lugar da página que não seja uma postagem
+  document.addEventListener('click', (e) => {
+    if (!menuContainer || !buttonShowMenu) return;
+    // só age se o menu estiver aberto
+    if (menuContainer.classList.contains(menuHiddenClass)) return;
+
+    const target = e.target;
+
+    // não fecha se o clique for dentro do menu ou nos botões de abrir/fechar
+    if (menuContainer.contains(target)) return;
+    if (buttonShowMenu.contains(target)) return;
+    if (buttonCloseMenu && buttonCloseMenu.contains(target)) return;
+
+    // não fecha se o clique ocorrer dentro de uma postagem
+    if (target.closest('.recipe, .recipe-list-item')) return;
+
+    // caso contrário, fecha o menu
+    closeMenu();
+  });
 })();
 
 (() => {
