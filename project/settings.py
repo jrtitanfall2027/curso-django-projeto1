@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # A gente tem apps também
+    # Django rest framework
+    'rest_framework',
+    # Estes são os apps do projeto
     'recipes',
     'authors',
     'tag',
