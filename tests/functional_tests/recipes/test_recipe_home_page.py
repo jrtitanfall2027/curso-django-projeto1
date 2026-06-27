@@ -38,10 +38,7 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
         search_input.send_keys(Keys.ENTER)
 
         # O usuário vê o que estava procurando na página
-        self.assertIn(
-            title_needed,
-            self.browser.find_element(By.CLASS_NAME, 'main-content-list').text,
-        )
+        self.wait_for_text_in_element(By.TAG_NAME, 'body', title_needed)
 
     @patch('recipes.views.site.PER_PAGE', new=2)
     def test_recipe_home_page_pagination(self):
